@@ -1,65 +1,71 @@
 import React, { Component } from 'react';
 import Key from './Key';
-// import './Keyboard.css';
 
 export default class Keyboard extends Component {
-	render() {
-		return (
-			<div>
-				<div className="keyboard-row">
-					<Key className="small-button" keyTag='1' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='2' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='3' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='^' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='log' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='ln' keyClick={this.props.keyClick}/>	
-				</div>
-				<div className="keyboard-row">
-					<Key className="small-button" keyTag='(&minus;)' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='2' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='hyp' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='sin' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='cos' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='tan' keyClick={this.props.keyClick}/>	
-				</div>
-				<div className="keyboard-row">
-					<Key className="small-button" keyTag='RCL' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='ENG' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='(' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag=')' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag=',' keyClick={this.props.keyClick}/>	
-					<Key className="small-button" keyTag='M+' keyClick={this.props.keyClick}/>	
-				</div>
-				<div className="keyboard-row">
-					<Key keyTag='1' keyClick={this.props.keyClick}/>	
-					<Key keyTag='2' keyClick={this.props.keyClick}/>	
-					<Key keyTag='3' keyClick={this.props.keyClick}/>	
-					<Key keyTag='DEL' keyClick={this.props.keyClick}/>	
-					<Key keyTag='AC' keyClick={this.props.keyClick}/>	
-				</div>
-				<div className="keyboard-row">
-					<Key keyTag='4' keyClick={this.props.keyClick}/>	
-					<Key keyTag='5' keyClick={this.props.keyClick}/>	
-					<Key keyTag='6' keyClick={this.props.keyClick}/>	
-					<Key keyTag='&times;' keyClick={this.props.keyClick}/>	
-					<Key keyTag='&divide;' keyClick={this.props.keyClick}/>	
-				</div>
-				<div className="keyboard-row">
-					<Key keyTag='7' keyClick={this.props.keyClick}/>	
-					<Key keyTag='8' keyClick={this.props.keyClick}/>	
-					<Key keyTag='9' keyClick={this.props.keyClick}/>	
-					<Key keyTag='+' keyClick={this.props.keyClick}/>	
-					<Key keyTag='&minus;' keyClick={this.props.keyClick}/>	
-				</div>
-				<div className="keyboard-row">
-					<Key keyTag='0' keyClick={this.props.keyClick}/>	
-					<Key keyTag='.' keyClick={this.props.keyClick}/>	
-					<Key keyTag='EXP' keyClick={this.props.keyClick}/>	
-					<Key keyTag='Ans' keyClick={this.props.keyClick}/>	
-					<Key keyTag='=' keyClick={this.props.keyClick}/>	
-				</div>
-			</div>
-			);
-	}
+  render() {
+  // for better readability of Key components - shorter lines
+    const keyClick = this.props.keyClick;
+    const x = <span>&#x1D4B3;</span>;
+    const inv = <sup>-1</sup>;
+    const pow2 = <sup>2</sup>;
+    const pow3 = <sup>3</sup>;
+
+    return (
+      <div>
+        <div className="keyboard-row">
+          <Key className="sm-button" Tag={[x, inv]} keyLog="^-1" math="inv" keyClick={keyClick} />
+          <Key className="sm-button" Tag="&radic;" keyLog="&radic;(" math="sqrt" keyClick={keyClick} />
+          <Key className="sm-button" Tag={[x, pow2]} keyLog="^2" math="sqr" keyClick={keyClick} />
+          <Key className="sm-button" Tag="^" keyLog="^" math="power" keyClick={keyClick} />
+          <Key className="sm-button" Tag="log" keyLog="log(" math="log" keyClick={keyClick} />
+          <Key className="sm-button" Tag="ln" keyLog="ln(" math="log" keyClick={keyClick} />
+        </div>
+        <div className="keyboard-row">
+          <Key className="sm-button" keyLog="-" Tag="(&minus;)" math="sub" keyClick={keyClick} />
+          <Key className="sm-button" keyLog="^3" Tag={[x, pow3]} math="power" keyClick={keyClick} />
+          <Key className="sm-button" keyLog="" Tag="hyp" math="log" keyClick={keyClick} />
+          <Key className="sm-button" keyLog="sin(" Tag="sin" math="trig" keyClick={keyClick} />
+          <Key className="sm-button" keyLog="cos(" Tag="cos" math="trig" keyClick={keyClick} />
+          <Key className="sm-button" keyLog="tan(" Tag="tan" math="trig" keyClick={keyClick} />
+        </div>
+        <div className="keyboard-row">
+          <Key className="sm-button" keyLog="" Tag="RCL" math="" keyClick={keyClick} />
+          <Key className="sm-button" keyLog="" Tag="ENG" math="" keyClick={keyClick} />
+          <Key className="sm-button" keyLog="(" Tag="(" math="prnths" keyClick={keyClick} />
+          <Key className="sm-button" keyLog=")" Tag=")" math="prnths" keyClick={keyClick} />
+          <Key className="sm-button" keyLog="" Tag="," math="log" keyClick={keyClick} />
+          <Key className="sm-button" keyLog="" Tag="M+" math="log" keyClick={keyClick} />
+        </div>
+        <div className="keyboard-row">
+          <Key Tag="1" keyLog="1" math="number" keyClick={keyClick} />
+          <Key Tag="2" keyLog="2" math="number" keyClick={keyClick} />
+          <Key Tag="3" keyLog="3" math="number" keyClick={keyClick} />
+          <Key className="orange-button" Tag="DEL" math="delete" keyClick={keyClick} />
+          <Key className="orange-button" Tag="AC" math="clear" keyClick={keyClick} />
+        </div>
+        <div className="keyboard-row">
+          <Key Tag="4" keyLog="4" math="number" keyClick={keyClick} />
+          <Key Tag="5" keyLog="5" math="number"keyClick={keyClick} />
+          <Key Tag="6" keyLog="6" math="number"keyClick={keyClick} />
+          <Key Tag="&times;" keyLog="&times;" math="multiply" keyClick={keyClick} />
+          <Key Tag="&divide;" keyLog="&divide;" math="divide" keyClick={keyClick} />
+        </div>
+        <div className="keyboard-row">
+          <Key Tag="7" keyLog="7" math="number" keyClick={keyClick} />
+          <Key Tag="8" keyLog="8" math="number" keyClick={keyClick} />
+          <Key Tag="9" keyLog="9" math="number" keyClick={keyClick} />
+          <Key Tag="+" keyLog="+" math="sum" keyClick={keyClick} />
+          <Key Tag="&minus;" keyLog="-" math="subtract" keyClick={keyClick} />
+        </div>
+        <div className="keyboard-row">
+          <Key Tag="0" keyLog="0" math="log" keyClick={keyClick} />
+          <Key Tag="." keyLog="." math="comma" keyClick={keyClick} />
+          <Key Tag="EXP" keyLog="E" math="exponent" keyClick={keyClick} />
+          <Key Tag="Ans" keyLog="Ans" math="ans" keyClick={keyClick} />
+          <Key Tag="=" math="equals" keyClick={keyClick} />
+        </div>
+      </div>
+    );
+  }
 }
 
