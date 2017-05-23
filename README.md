@@ -1,4 +1,4 @@
-This project was made with create-react-app 
+This project was made with [create-react-app](https://github.com/facebookincubator/create-react-app)
 
 JS libraries that were used:
 - [mathjs](http://mathjs.org/index.html) for calculations
