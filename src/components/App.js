@@ -68,7 +68,7 @@ export default class App extends Component {
       this.handleEqualsClick(currentLog);
     }
 
-    if (math.match(/trig|log|number|comma|parenthesis|ans|sqrt|exponent/)) {
+    if (math.match(/trig|log|number|comma|prnths|ans|sqrt|exponent/)) {
       if (clickedEquals) this.setState({ log: keyLog, clickedEquals: false });
       else this.setState({ log: currentLog + keyLog });
     }
@@ -116,7 +116,8 @@ export default class App extends Component {
   render() {
     return (
       <div className="calc-container">
-        <p className="description" >Pasio - unleash the mathematician within</p>
+        <p className="description" >Pasio <br/><br/>
+          unleash the mathematician within</p>
         <Screen
           log={this.state.log}
           result={this.state.result}
