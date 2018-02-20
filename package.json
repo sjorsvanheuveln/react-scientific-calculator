@@ -1,11 +1,9 @@
 {
   "name": "scientific-calculator",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "eslint": "^3.19.0",
-    "he": "^1.1.1",
-    "mathjs": "^3.13.1",
+    "mathjs-expression-parser": ^1.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
