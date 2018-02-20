@@ -3,8 +3,7 @@ import Screen from './Screen';
 import Keyboard from './Keyboard';
 import '../App.css';
 
-const math = require('mathjs');
-const he = require('he'); // library for html entities encoding/decoding
+const math = require('mathjs-expression-parser');
 
 export default class App extends Component {
   constructor(props) {
@@ -32,8 +31,8 @@ export default class App extends Component {
       }
 
       const mathEntities = {
-        '*': he.decode('&#x000D7;'),
-        '/': he.decode('&divide;'),
+        '*': '×',
+        '/': '÷',
       };
 
       if (e.key.match(/[*/]/)) {
@@ -80,9 +79,9 @@ export default class App extends Component {
   }
 
   handleEqualsClick(currentLog) {
-    const times = he.decode('&#x000D7;');
-    const divide = he.decode('&divide;');
-    const sqrt = he.decode('&radic;');
+    const times = '×';
+    const divide = '÷';
+    const sqrt = '√';
     const sqrtReg = new RegExp(sqrt, 'g');
 
     // change log so it's understanable to mathjs eval() method
