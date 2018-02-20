@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "private": true,
   "dependencies": {
-    "mathjs-expression-parser": ^1.0.0",
+    "mathjs-expression-parser": "^1.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
   },
